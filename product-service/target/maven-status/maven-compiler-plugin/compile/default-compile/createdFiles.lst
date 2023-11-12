@@ -1,0 +1,11 @@
+com\heeratsingh\productservice\dto\ProductRequest.class
+com\heeratsingh\productservice\controller\ProductController.class
+com\heeratsingh\productservice\dto\ProductResponse.class
+com\heeratsingh\productservice\dto\ProductResponse$ProductResponseBuilder.class
+com\heeratsingh\productservice\dto\ProductRequest$ProductRequestBuilder.class
+com\heeratsingh\productservice\ProductServiceApplication.class
+com\heeratsingh\productservice\repository\ProductRepository.class
+com\heeratsingh\productservice\model\Product$ProductBuilder.class
+com\heeratsingh\productservice\service\ProductService.class
+com\heeratsingh\productservice\controller\TestController.class
+com\heeratsingh\productservice\model\Product.class

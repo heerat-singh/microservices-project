@@ -1,5 +1,6 @@
 package com.heeratsingh.orderservice.service;
 
+import com.heeratsingh.orderservice.dto.InventoryResponse;
 import com.heeratsingh.orderservice.dto.OrderLineItemsDto;
 import com.heeratsingh.orderservice.dto.OrderRequest;
 import com.heeratsingh.orderservice.model.Order;
@@ -8,7 +9,9 @@ import com.heeratsingh.orderservice.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,6 +21,8 @@ import java.util.UUID;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+
+    private final WebClient webClient;
 
     public String placeOrder(OrderRequest orderRequest) {
         Order order = new Order();
@@ -30,10 +35,27 @@ public class OrderService {
 
         order.setOrderLineItemsList(orderLineItems);
 
+        List<String> skuCode = order.getOrderLineItemsList().stream().map(OrderLineItems::getSkuCode).toList();
+
         //call inventory service
 
-        orderRepository.save(order);
-        log.info("Order Saved in DB");
+        InventoryResponse[] inventoryResponses =webClient.get()
+                .uri("http://localhost:8092/api/inventory", uriBuilder -> uriBuilder
+                        .queryParam("skuCode",skuCode).build())
+                .retrieve()
+                .bodyToMono(InventoryResponse[].class)
+                .block();
+
+        boolean result= Arrays.stream(inventoryResponses)
+                .allMatch(InventoryResponse::isInStock);
+
+        if(result){
+            orderRepository.save(order);
+            log.info("Order Saved in DB");
+        }
+        else {
+            throw new IllegalArgumentException("Product not in inventory, try later");
+        }
         return "Order Saved";
 
     }

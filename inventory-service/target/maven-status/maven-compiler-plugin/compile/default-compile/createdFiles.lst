@@ -1,9 +1,0 @@
-com\heeratsingh\inventoryservice\dto\InventoryResponse$InventoryResponseBuilder.class
-com\heeratsingh\inventoryservice\model\Inventory$InventoryBuilder.class
-com\heeratsingh\inventoryservice\util\DataLoader.class
-com\heeratsingh\inventoryservice\controller\InventoryController.class
-com\heeratsingh\inventoryservice\service\InventoryService.class
-com\heeratsingh\inventoryservice\model\Inventory.class
-com\heeratsingh\inventoryservice\repository\InventoryRepository.class
-com\heeratsingh\inventoryservice\dto\InventoryResponse.class
-com\heeratsingh\inventoryservice\InventoryServiceApplication.class

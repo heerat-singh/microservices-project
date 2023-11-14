@@ -1,8 +1,0 @@
-E:\git-local\microservices-new\order-service\src\main\java\com\heeratsingh\orderservice\model\Order.java
-E:\git-local\microservices-new\order-service\src\main\java\com\heeratsingh\orderservice\service\OrderService.java
-E:\git-local\microservices-new\order-service\src\main\java\com\heeratsingh\orderservice\dto\OrderRequest.java
-E:\git-local\microservices-new\order-service\src\main\java\com\heeratsingh\orderservice\repository\OrderRepository.java
-E:\git-local\microservices-new\order-service\src\main\java\com\heeratsingh\orderservice\model\OrderLineItems.java
-E:\git-local\microservices-new\order-service\src\main\java\com\heeratsingh\orderservice\dto\OrderLineItemsDto.java
-E:\git-local\microservices-new\order-service\src\main\java\com\heeratsingh\orderservice\OrderServiceApplication.java
-E:\git-local\microservices-new\order-service\src\main\java\com\heeratsingh\orderservice\controller\OrderController.java

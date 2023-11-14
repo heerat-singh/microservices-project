@@ -30,6 +30,8 @@ public class OrderService {
 
         order.setOrderLineItemsList(orderLineItems);
 
+        //call inventory service
+
         orderRepository.save(order);
         log.info("Order Saved in DB");
         return "Order Saved";
